@@ -1,0 +1,66 @@
+<import src="../../template/propItem.wxml"></import>
+<import src="../../template/wheelGroup.wxml"></import>
+<import src="../../template/shareBtn.wxml"></import>
+<import src="../../template/rewardEXView.wxml"></import>
+<import src="../../template/ItemDetail.wxml"></import>
+<view class="column-reverse start center2" style="position: absolute;left:0px;top:0px;background-color:#4E84E5;width:100%;height:100%"></view>
+<view style="position:absolute;width:100%;height:100%;overflow:hidden;left:0px;top:0px;display: flex; ">
+    <view class="column start center2 main-show" style="position: absolute;left:0px;top:0px;width:100%;height:100%;" wx:if="{{!isShopClosed.length>0}}">
+        <view style="position: absolute;left:calc((100% - 680rpx)/2);top:33rpx; width:680rpx;bottom:210rpx; ">
+            <scroll-view scrollY="true" style="position:absolute;left:0px;top:0px;width:100%;height:100%;">
+                <view class="column center2" style="position:absolute;left:0px;top:0px; width:100%;background-color:#fff;border-radius: 20rpx;min-height:100%;">
+                    <view class="column-reverse start center2" style="width:100%;height:228rpx;" wx:if="{{newHandItem}}">
+                        <image bindtap="callback_newHanditem_clicked" hoverClass="brightness" src="http://question-resource-zh.hortor.net/image/new_skin/shop_and_items/img_ad_newuser_reward.png" style="width:664rpx;height:196rpx;"></image>
+                    </view>
+                    <view class="row start" style="flex-wrap:wrap;">
+                        <view bindtap="callback_item_clicked" class="column center center2" data-pid="{{item.id}}" hoverClass="brightness" style="position:relative;width:226rpx;height:250rpx" wx:for="{{goodsArray}}" wx:for-index="id" wx:key="id">
+                            <view style="height:30rpx"></view>
+                            <view class="center center2 " style="height:28rpx;width:152rpx;font-size:20rpx;background-color:#4670CD;border-radius:14rpx">{{item.name}}</view>
+                            <image src="http://question-resource-zh.hortor.net/image/new_skin/icon/icon_items/{{item.typeId==1?item.id:item.itemId}}.png?v=0.1.12" style="width:124rpx;height:124rpx;"></image>
+                            <view class="center center2 " style="height:34rpx;width:124rpx;font-size:28rpx;color:#fff;font-weight:bold;background-color:#F5A623;border-radius:17rpx">￥{{item.price}}</view>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <view class="column start center2 main-show" style="position: absolute;left:0px;top:0px;width:100%;height:100%;" wx:else>
+        <view style="height:162rpx"></view>
+        <image src="http://question-resource-zh.hortor.net/image/new_skin/shop_and_items/img_pay_ios.png" style="width:570rpx;height:402rpx;"></image>
+        <view class="center center2" style="font-size:48rpx;height:67rpx;width:100%;font-weight:bold;">{{isShopClosed[0]}}</view>
+        <view class="center center2" style="font-size:48rpx;height:67rpx;width:100%;font-weight:bold;color:#BDDBFF;opacity: 0.7;" wx:if="{{isShopClosed.length>1}}">{{isShopClosed[1]}}</view>
+    </view>
+    <view style="position:absolute;bottom:340rpx;right:{{IOSPayViewRight}}rpx;transition:right 500ms;">
+        <image src="http://question-resource-zh.hortor.net/image/new_skin/home/img_freecoin.png" style="width:317rpx;height:133rpx;"></image>
+        <image src="http://question-resource-zh.hortor.net/image/new_skin/home/coin_king_yuan.gif" style="position:absolute;left:-22rpx;top:6rpx; width:116rpx;height:116rpx;"></image>
+        <button bindtap="onTapIOSPayView" class="opacity0" openType="contact" sessionFrom="pay" style="width:283rpx;height:94rpx;position:absolute;top:0px;left:0px"></button>
+    </view>
+</view>
+<view class="btn-show" style="width:100%;height:200rpx;position:absolute;left:0px;bottom:0rpx;">
+    <view class="column start center2" style="width:100%;height:100%" wx:if="{{shareRewardText}}">
+        <view style="background-color:#2e386a;width:440rpx;height:118rpx;border-radius:20rpx;">
+            <view class="row center2 center" style="position:relative; width:100%;background-color:#FF8100;height:114rpx;border-radius:20rpx;">
+                <image src="http://question-resource-zh.hortor.net/image/new_skin/home/icon_king_yuan.png" style="width:73rpx;height:75rpx;"></image>
+                <view style="width:28rpx"></view>
+                <view style="font-size:48rpx;font-weight:bold;">免费金币</view>
+                <button openType="share" style="width:100%;height:100%;position:absolute;left:0px;top:0px;opacity:0">看不见的分享</button>
+            </view>
+            <view style="height:32rpx"></view>
+            <view class="row center center2" style="width:100%">
+                <view style="font-size:24rpx;color:#A9DCFF;">{{shareRewardText}}</view>
+                <image src="http://question-resource-zh.hortor.net/image/new_skin/home/icon_king_yuan.png" style="width:30rpx;height:30rpx;"></image>
+            </view>
+        </view>
+    </view>
+    <view class="column start center2" style="width:100%;height:100%" wx:else>
+        <view style="background-color:#2e386a;width:440rpx;height:118rpx;border-radius:20rpx;">
+            <view class="row center2 center" style="position:relative; width:100%;background-color:#FF8100;height:114rpx;border-radius:20rpx;">
+                <view style="font-size:48rpx;font-weight:bold;">邀请好友来玩</view>
+                <button openType="share" style="width:100%;height:100%;position:absolute;left:0px;top:0px;opacity:0">看不见的分享</button>
+            </view>
+        </view>
+    </view>
+</view>
+<view style="position: absolute;left:0px;top:0px;width:100%;height:100%" wx:if="{{itemSelected}}">
+    <template is="productDetail" data="{{...itemSelected}}"></template>
+</view>

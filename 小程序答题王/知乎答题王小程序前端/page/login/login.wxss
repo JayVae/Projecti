@@ -1,0 +1,33 @@
+.mainView {
+    width: 100%;
+    height: 100%;
+    background-image: url(http://question-resource-zh.hortor.net/image/new_skin/home/pattern.jpg);
+    background-repeat: repeat;
+    transform: translate3d(0px,0px,0px);
+    transition: transform 10s linear;
+    transition: transform 10s linear,-webkit-transform 10s linear;
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.mask1 {
+    width: 100%;
+    height: 66rpx;
+    background-color: #4E84E5;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.logo {
+    position: absolute;
+    width: 603rpx;
+    height: 278rpx;
+    display: flex;
+    flex: none;
+    left: calc((100% - 603rpx)/2);
+    top: calc(50% - 203rpx);
+}

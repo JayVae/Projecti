@@ -1,0 +1,23 @@
+module.exports = {
+    socketClose: 110,
+    socketOpen: 111,
+    hearbeat: 1,
+    ActionGameConf: 10001,
+    ActionGameBoard: 10002,
+    ActionFightNotify: 1002,
+    ActionFightAnswer: 1003,
+    ActionFightInviteInto: 1004,
+    ActionFightInviteBegin: 1005,
+    ActionFightInviteAgain: 1006,
+    ActionFightInviteChange: 1007,
+    ActionFightOut: 1008,
+    ActionPlayerLogout: 2e3,
+    ActionPlayerEdgeOut: 2001,
+    ActionFightSendEmot: 1009,
+    ActionDonatePay: 1050,
+    ActionNewMail: 10005,
+    ActionIsBanned: 10004,
+    ActionPlayerNameIllegal: 2002,
+    ActionChallengeInfoBase: 3e3,
+    ActionChallengeInfoMembers: 3002
+};

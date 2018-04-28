@@ -1,0 +1,128 @@
+.label-question {
+    color: #fff;
+    font-size: 36rpx;
+    text-align: left;
+    line-height: 50rpx;
+    width: 100%;
+    top: 100%;
+}
+
+.stem-background {
+    opacity: 0;
+}
+
+.answer_normal {
+    width: 440rpx;
+    height: 114rpx;
+    position: relative;
+    background-color: #fff;
+    border-radius: 20rpx;
+    font-size: 40rpx;
+}
+
+.answer_o {
+    width: 440rpx;
+    height: 114rpx;
+    position: relative;
+    background-color: #1caa91;
+    border-radius: 20rpx;
+    font-size: 32rpx;
+}
+
+.answer_x {
+    width: 440rpx;
+    height: 114rpx;
+    position: relative;
+    background-color: #d94848;
+    border-radius: 20rpx;
+    font-size: 32rpx;
+}
+
+.answers_hide {
+    animation: frames-answers_hide 0.5s ease-out;
+}
+
+@-webkit-keyframes frames-answers_hide {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes frames-answers_hide {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.evaluate_show {
+    animation: frames-evaluate_show 0.5s ease-out;
+}
+
+@-webkit-keyframes frames-evaluate_show {
+    0% {
+        opacity: 0;
+        top: 590rpx;
+    }
+
+    100% {
+        opacity: 1;
+        top: 538rpx;
+    }
+}
+
+@keyframes frames-evaluate_show {
+    0% {
+        opacity: 0;
+        top: 590rpx;
+    }
+
+    100% {
+        opacity: 1;
+        top: 538rpx;
+    }
+}
+
+.button-answer-tapEffect {
+    position: absolute;
+    top: -2rpx;
+    left: -2rpx;
+    width: 444rpx;
+    height: 118rpx;
+    border-radius: 20rpx;
+    border: 6rpx solid rgba(255,255,255,0.65);
+    box-shadow: 0 0 2rpx #fff,0 0 6rpx #fff,0 0 12rpx #fff,0 0 16rpx #fff,0 0 32rpx #fff,0 0 64rpx #fff;
+    opacity: 0;
+    background-color: rgba(150,255,233,0.8);
+}
+
+.reasonlist-show {
+    animation: frames-reasonlist-show 0.4s ease-out;
+}
+
+@-webkit-keyframes frames-reasonlist-show {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+@keyframes frames-reasonlist-show {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: 0px;
+    }
+}

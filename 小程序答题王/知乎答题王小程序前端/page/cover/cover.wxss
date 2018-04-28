@@ -1,0 +1,410 @@
+@import "../../template/liveExpiredView.wxss";
+
+@import "template/beginnerTestView.wxss";
+
+@import "template/dailyRewardView.wxss";
+
+@import "template/bankShareView.wxss";
+
+@import "template/seasonReward.wxss";
+
+@import "../../template/avatarBase.wxss";
+
+@import "../pvr/template/PvrPopup.wxss";
+
+.pageView {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.coverBg {
+    width: 200%;
+    height: 200%;
+    background-image: url(http://question-resource-zh.hortor.net/image/new_skin/home/pattern.jpg);
+    background-repeat: repeat;
+    transform: translate3d(0px,0px,0px);
+    transition: transform 10s linear;
+    transition: transform 10s linear,-webkit-transform 10s linear;
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.scrollView {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.scrollContentView {
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    width: 678rpx;
+    height: 1602rpx;
+    position: absolute;
+    top: 0px;
+    left: 36rpx;
+    transform: translateZ(0);
+}
+
+.mask1 {
+    width: 100%;
+    height: 188rpx;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.mask2 {
+    width: 100%;
+    height: 66rpx;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.userInfoMainView {
+    width: 678rpx;
+    height: 277rpx;
+    position: absolute;
+    top: 34rpx;
+    left: 0px;
+}
+
+.userInfoBg {
+    width: 678rpx;
+    height: 277rpx;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.userInfoView {
+    width: 678rpx;
+    height: 277rpx;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.userAvatar {
+    width: 120rpx;
+    height: 120rpx;
+    position: absolute;
+    top: 33rpx;
+    left: 46rpx;
+}
+
+.userName {
+    text-align: left;
+    position: absolute;
+    width: 100%;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    left: 55rpx;
+    top: 160rpx;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.userLevelView {
+    position: absolute;
+    top: 202rpx;
+    left: 35rpx;
+    height: 38rpx;
+}
+
+.userLevel {
+    color: #A9DCFF;
+    font-size: 32rpx;
+    line-height: 38rpx;
+    height: 38rpx;
+    font-weight: bold;
+}
+
+.userExp {
+    padding: 3rpx;
+    width: 197rpx;
+    height: 16rpx;
+    background-color: #fff;
+    border-radius: 20rpx;
+    border: 2rpx solid #5dbaff;
+    margin: 6rpx;
+}
+
+.userExp2 {
+    background-color: #8EBCFE;
+    height: 100%;
+    border-radius: 100rpx;
+    flex: none;
+}
+
+.userGoldView {
+    position: absolute;
+    top: 193rpx;
+    left: 396rpx;
+    height: 50rpx;
+}
+
+.userGoldImg {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.userGoldNum {
+    color: #fff;
+    font-size: 40rpx;
+    letter-spacing: 3rpx;
+    line-height: 48rpx;
+    height: 48rpx;
+    margin: 0px 9rpx 0px 5rpx;
+}
+
+.userGoldBtn {
+    width: 38rpx;
+    height: 38rpx;
+    position: relative;
+    left: 0px;
+    top: 5rpx;
+}
+
+.picWallView {
+    width: 678rpx;
+    height: 1277rpx;
+    position: absolute;
+    top: 325rpx;
+    left: 0px;
+}
+
+.challengeView {
+    width: 328rpx;
+    height: 360rpx;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.challengeImg {
+    width: 328rpx;
+    height: 360rpx;
+}
+
+.challengScope {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.challengUserCount {
+    font-size: 28rpx;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-shadow: 0 0 4rpx #0368C3;
+    white-space: nowrap;
+    line-height: 28rpx;
+    height: 28rpx;
+    margin: 0px 4rpx 0px 0px;
+}
+
+.challengUserCountImg {
+    width: 0;
+}
+
+.groupChallengeView {
+    width: 328rpx;
+    height: 317rpx;
+    position: absolute;
+    left: 350rpx;
+    top: 458rpx;
+}
+
+.shopView {
+    width: 328rpx;
+    height: 255rpx;
+    position: absolute;
+    left: 350rpx;
+    top: 795rpx;
+}
+
+.shopImg {
+    width: 328rpx;
+    height: 255rpx;
+}
+
+.bankView {
+    width: 328rpx;
+    height: 180rpx;
+    position: absolute;
+    left: 0px;
+    top: 380rpx;
+}
+
+.bankImg {
+    width: 328rpx;
+    height: 180rpx;
+}
+
+.knowledgeView {
+    width: 328rpx;
+    height: 270rpx;
+    position: absolute;
+    left: 0px;
+    top: 580rpx;
+}
+
+.knowledgeImg {
+    width: 328rpx;
+    height: 270rpx;
+}
+
+.cashView {
+    width: 328rpx;
+    height: 279rpx;
+    position: absolute;
+    top: 0px;
+    left: 350rpx;
+}
+
+.cashImg {
+    width: 328rpx;
+    height: 279rpx;
+}
+
+.rankView {
+    width: 328rpx;
+    height: 180rpx;
+    position: absolute;
+    top: 0px;
+    left: 350rpx;
+}
+
+.rankImg {
+    width: 328rpx;
+    height: 180rpx;
+}
+
+.livematchView {
+    width: 328rpx;
+    height: 238rpx;
+    position: absolute;
+    top: 200rpx;
+    left: 350rpx;
+}
+
+.livematchImg {
+    width: 328rpx;
+    height: 238rpx;
+}
+
+.itemView {
+    width: 328rpx;
+    height: 180rpx;
+    position: absolute;
+    top: 870rpx;
+    left: 0px;
+}
+
+.itemImg {
+    width: 328rpx;
+    height: 180rpx;
+}
+
+.settingView {
+    width: 328rpx;
+    height: 179rpx;
+    position: absolute;
+    top: 1070rpx;
+    left: 350rpx;
+}
+
+.comingsoonView {
+    width: 328rpx;
+    height: 179rpx;
+    position: absolute;
+    left: 0px;
+    top: 1070rpx;
+}
+
+.comingsoonImg {
+    width: 328rpx;
+    height: 179rpx;
+}
+
+.not-open {
+    filter: brightness(0.5) grayscale(50%);
+}
+
+.noticeViewTitle {
+    color: #fff;
+    font-size: 50rpx;
+    text-align: left;
+    line-height: 50rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500rpx;
+    margin: 30rpx;
+}
+
+.noticeViewLabel {
+    font-size: 22rpx;
+    color: #353535;
+    width: 520rpx;
+    line-height: 30rpx;
+    text-align: left;
+}
+
+.subscribeView {
+    position: absolute;
+    bottom: 50rpx;
+    right: -318rpx;
+}
+
+.zhihuView {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 440rpx;
+    left: -8px;
+}
+
+.zhihuBtn {
+    width: calc(237rpx / 2);
+    height: calc(237rpx / 2);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.zhihuBtn2 {
+    width: calc(685rpx / 2);
+    height: calc(422rpx / 2);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.zhihuCloseBtn {
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    top: 60rpx;
+    left: 300rpx;
+}

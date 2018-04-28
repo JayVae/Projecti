@@ -1,0 +1,53 @@
+<import src="../../../template/ugcView.wxml"></import>
+<view class="column-reverse start center2" style="background-color:#4E84E5;width:100%;height:100%">
+    <image src="http://question-resource-zh.hortor.net/image/new_skin/battle/bg_battle.png?v=0.1.12" style="width:750rpx;height:502rpx;"></image>
+</view>
+<view class="column center center2" style="position: absolute;left:0px;top:0px;width:100%;height:100%;overflow:hidden">
+    <view class="start start2" style="position: absolute;width:638rpx; height:150rpx;left:calc(50% - 638rpx / 2); bottom:75rpx; font-size: 22rpx; color: #8CBBFF; letter-spacing: 0;">出题时严禁涉及色情低俗、违法犯罪、反动恐怖等话题，如涉及政治、民族、宗教、国家领土及其他法律问题，请自行承担后果。</view>
+    <view class="column start center2" style="width:100%;height:512rpx;border-radius: 10rpx;">
+        <scroll-view name="view-listview" scrollY="true" style="width: 100%;">
+            <view class="row flex-start2" style="width:100%;flex-wrap:wrap;">
+                <view bindtap="item_type_clicked" class="column start center2" data-id="{{item.id}}" hoverClass="brightness" style="width:250rpx;height:256rpx;" wx:for="{{typeList}}" wx:for-index="id" wx:key="id">
+                    <image animation="{{anis_type[item.id-1]}}" class="{{selectedItem.type==item.id?'item-selected':''}}" src="http://question-resource-zh.hortor.net/image/new_skin/question_factory/type/{{item.id}}.png?v=0.1.13" style="width:160rpx;height:160rpx;transform: rotate(-15deg);opacity:0"></image>
+                    <image animation="{{anis_type[item.id-1]}}" class="{{selectedItem.type==item.id?'item-selected':''}}" src="http://question-resource-zh.hortor.net/image/new_skin/question_factory/type/{{item.id}}_{{item.id}}.png?v=0.1.12" style="width:100rpx;height:45rpx;transform: rotate(-15deg);opacity:0;padding-top:10rpx"></image>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view style="position:absolute;left:0px;top:0px;width:100%;height:100%" wx:if="{{selectedItem.type>0}}">
+    <view bindtap="callback_subjectsForm_closed" style="width:100%;height:100%;background-color:rgba(0,0,0,0.5);"></view>
+    <view class="show-form column start center2 form-normal" style="position:absolute; width:680rpx; height:828rpx; left:0; top:0; right:0; bottom:0; margin:auto;">
+        <view class="icon-rotate" hoverClass="icon-rotate" style="width:170rpx;height:170rpx;position: absolute;left: calc(50% - 85rpx);top: -85rpx;">
+            <image src="http://question-resource-zh.hortor.net/image/new_skin/question_factory/type/{{selectedItem.type}}.png?v=0.1.12" style="width:100%;height:100%;"></image>
+        </view>
+        <view style="height:105rpx"></view>
+        <view class="font-title-white center center2" style="width:100%;height:75rpx;background-color:#4670CD">
+            {{selectedItem.typeText}}
+        </view>
+        <view style="height:10rpx"></view>
+        <scroll-view class="center" name="view-listview" scrollY="true" style="width: 100%;height: 460rpx;">
+            <view style="width:100%">
+                <view class="row start" style="width:100%;flex-wrap:wrap;">
+                    <view bindtap="item_subject_clicked" class="column center center2" data-id="{{item.id}}" hoverClass="brightness" style="width:226rpx;height:226rpx;" wx:for="{{subjectList}}" wx:for-index="id" wx:key="id">
+                        <view animation="{{anis_subject[(item.id-1)%5]}}" class="column center2 start" style="width:152rpx;height:155rpx;border-radius: 20rpx;background-color:#EAF3FF;box-shadow: 0px 0px 9rpx rgba(0, 0, 0, 0.5);transform: rotate(-15deg);opacity:0">
+                            <view style="height:4rpx;"></view>
+                            <view class="center center2 " style="height:32rpx;width:100rpx;font-size:24rpx;border-radius: 16rpx;background-color:#5dbaff">{{item.title}}</view>
+                            <view class="center center2" style="width:130rpx;height:130rpx;flex:none;">
+                                <image class="{{selectedItem.subject==item.id?'item-selected':''}}" src="http://question-resource-zh.hortor.net/image/new_skin/icon/icon_items/{{item.iconId}}.png?v=0.1.12" style="width:100rpx;height:100rpx;"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view style="height:10rpx"></view>
+        <view bindtap="btn_goon_clicked" class="center center2 show-form" hoverClass="brightness" style="position:relative;width:318rpx;height:108rpx" wx:if="{{selectedItem.subject>0}}">
+            <image src="http://question-resource-zh.hortor.net/image/new_skin/popup/btn_green.png" style="width:100%;height:100%"></image>
+            <view class="font-button-white" style="position:absolute;left:0px;top:0px;width:100%;height:100%">下一步</view>
+        </view>
+        <view bindtap="callback_subjectsForm_closed" class="center center2" hoverClass="brightness" style="position:absolute;right:-16rpx;top:-16rpx;width:100rpx;height:100rpx">
+            <image src="http://question-resource-zh.hortor.net/image/new_skin/popup/icon_close.png" style="width:30%;height:30%"></image>
+        </view>
+    </view>
+</view>

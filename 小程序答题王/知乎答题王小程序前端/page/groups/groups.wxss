@@ -1,0 +1,14 @@
+@import "../../template/avatarNoName.wxss";
+
+@import "../../template/groupName.wxss";
+
+.text-outlight {
+    font-size: 32rpx;
+    text-shadow: 0 0 0.2em #006bfd,-0 -0 0.2em #006bfd;
+}
+
+.button-create-group {
+    border: 1;
+    width: 500rpx;
+    font-size: 32rpx;
+}

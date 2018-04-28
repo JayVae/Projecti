@@ -1,0 +1,48 @@
+{
+    "pages": [
+        "page/login/login",
+        "page/cover/cover",
+        "page/rank_global/rank_global",
+        "page/live/live",
+        "page/fight/fight",
+        "page/rank_friends/rank_friends",
+        "page/my_group/my_group",
+        "page/user_detail/user_detail",
+        "page/groups/groups",
+        "page/shop/shop",
+        "page/pve/pve",
+        "page/compare_to_friend/compare_to_friend",
+        "page/compare_to_group/compare_to_group",
+        "page/items/items",
+        "page/pvr/pvr",
+        "page/know/know",
+        "page/qrCode/qrCode",
+        "page/ugc/ugc_list/ugc_list",
+        "page/ugc/ugc_qedit/ugc_qedit",
+        "page/ugc/ugc_qsetting/ugc_qsetting",
+        "page/test/animation/animation",
+        "page/test/main/main",
+        "page/test/video/video",
+        "page/ugc/ugc_menu/ugc_menu",
+        "page/ugc/ugc_check/ugc_check",
+        "page/test/audio/audio",
+        "page/pve/pve_season_detail/pve_season_detail",
+        "page/challenge/challenge_roomlist/challenge_roomlist",
+        "page/challenge/challenge_rank/challenge_rank",
+        "page/challenge/challenge_room/challenge_room"
+    ],
+    "window": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "知乎答题王",
+        "navigationBarBackgroundColor": "#4E84E5",
+        "backgroundColor": "#4E84E5",
+        "enablePullDownRefresh": false
+    },
+    "networkTimeout": {
+        "request": 8000,
+        "connectSocket": 60000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+    },
+    "debug": true
+}

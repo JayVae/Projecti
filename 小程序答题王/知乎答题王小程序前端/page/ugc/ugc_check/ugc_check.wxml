@@ -1,0 +1,72 @@
+<import src="../../../template/grid9Panel.wxml"></import>
+<view class="column-reverse start center2" style="background-color:#4E84E5;width:100%;height:100%">
+    <image src="http://question-resource-zh.hortor.net/image/new_skin/battle/bg_battle.png?v=0.1.12" style="width:750rpx;height:502rpx;"></image>
+</view>
+<view class="center2 center" style="position:absolute;top:40rpx;left:0px;width:100%;height:60rpx;font-size:36rpx;color:#46c7f7" wx:if="{{showNull}}">没有需要审核的题目</view>
+<view class="column start center2" style="position: absolute;left:0px;top:0px;width:100%;height:100%;overflow: hidden">
+    <view class="start start2" style="position: absolute;width:500rpx; height:150rpx;left:calc(50% - 500 / 2); bottom:10rpx; font-size: 22rpx; color: #8CBBFF;">*所审题目均来自玩家出题，仅代表玩家个人意愿，请慎重选择，您的支持是我们前进的动力。</view>
+    <view animation="{{ani_type}}" class="center center2 font-blue-1 setting-show" style="position:absolute;left:-310rpx;top:0px;width:315rpx;height:82rpx;background-color:#66CAFD;border-bottom-right-radius: 40rpx;border-top-right-radius: 40rpx;opacity:0">
+        <view class="row center center2">
+            <view class="center center2" style="color:#fff;font-size:48rpx;padding-right:16rpx">
+                {{typeAndSubjectText.type}}
+            </view>
+            <view style="width:3rpx;height:58rpx;background-color:#fff"></view>
+            <view class="center center2" style="color:#8EBCFE;font-size:36rpx;padding-left:16rpx">
+                {{typeAndSubjectText.subject}}
+            </view>
+        </view>
+    </view>
+    <image animation="{{ani_next}}" bindtap="btn_next_click" hoverClass="brightness" src="http://question-resource-zh.hortor.net/image/new_skin/question_factory/btn_qf_skip.png?v=0.1.12" style="position:absolute;top:0px;width:313rpx;height:90rpx;right:-320rpx;"></image>
+    <view animation="{{ani_stem}}" class="stem-background" style="position:absolute;left:calc((100% - 564rpx)/2);top:195rpx; width:564rpx;height:150rpx;">
+        <view class="label-question">{{quiz.title}}</view>
+    </view>
+    <view animation="{{ani_answers}}" class="column start center2" style="position:absolute;left:0px;top:457rpx; width:100%;opacity:0">
+        <block wx:for="{{answerList}}" wx:key="idx">
+            <view bindtap="btn_answer_clicked" class="column start center2 " data-idx="{{item.idx}}" style="width: 440rpx;height: 118rpx;position: relative;background-color: #2d396c;border-radius: 20rpx;">
+                <view class="{{item.class}}"></view>
+                <view style="position:absolute;left:0px;top:0px;width:100%;height:100%">
+                    <view animation="{{item.effFrameAni}}" class="button-answer-tapEffect"></view>
+                    <view class="row center center2" style="width:100%;height:100%">
+                        <view class="center center2" style="width:100%;height:100%;line-height: 56rpx;color:{{item.flag?'#fff':'#4354A6'}};font-weight:bold">{{item.title}}</view>
+                    </view>
+                    <image src="http://question-resource-zh.hortor.net/image/new_skin/battle/{{item.flag=='o'?'icon_btn_answer_right':'icon_btn_answer_wrong'}}.png" style="width:36rpx;height:36rpx;position:absolute;left:24rpx;top:35rpx;" wx:if="{{item.flag}}"></image>
+                </view>
+            </view>
+            <view style="height:24rpx"></view>
+        </block>
+    </view>
+    <audio id="audioTap" src="http://question-resource-zh.hortor.net/image/soundEffect/button_click.wav" wx:if="{{!soundOff}}"></audio>
+    <audio id="audioTrue" src="http://question-resource-zh.hortor.net/image/soundEffect/answer_correct.wav" wx:if="{{!soundOff}}"></audio>
+    <audio id="audioFalse" src="http://question-resource-zh.hortor.net/image/soundEffect/answer_wrong.wav" wx:if="{{!soundOff}}"></audio>
+    <view class="center2 center evaluate_show" style="width:315rpx;height:67rpx;position:absolute;left:calc((100% - 315rpx)/2);top:538rpx;opacity:1;font-size:36rpx;color:#fff;background-color:#66CAFD;border-radius:33rpx" wx:if="{{curState==2}}">评价这道题</view>
+    <view animation="{{ani_btn_left_show}}" bindtap="btn_bad_clicked" class="row center center2 {{curState>=1?'':'hide'}}" hoverClass="brightness" style="position:absolute;left:-350rpx;bottom:395rpx;width:350rpx;height:120rpx;background-color:#F5A623;opacity:0;border-top-right-radius: 60rpx;border-bottom-right-radius: 60rpx;box-shadow:0 2rpx 4rpx rgba(0,0,0,0.5)">
+        <image src="http://question-resource-zh.hortor.net/image/new_skin/question_factory/icon_qf_bad.png" style="width:48rpx;height:49rpx"></image>
+        <view style="width:20rpx"></view>
+        <view style="font-size:48rpx;font-weight:bold">烂题</view>
+    </view>
+    <view animation="{{ani_btn_right_show}}" bindtap="btn_good_clicked" class="row center2 center {{curState>=1?'':'hide'}}" hoverClass="brightness" style="position:absolute;right:-350rpx;bottom:395rpx;width:350rpx;height:120rpx;background-color:#00E1BD;opacity:0;border-top-left-radius: 60rpx;border-bottom-left-radius: 60rpx;box-shadow:0 2rpx 4rpx rgba(0,0,0,0.5)">
+        <image src="http://question-resource-zh.hortor.net/image/new_skin/question_factory/icon_qf_good.png" style="width:48rpx;height:49rpx"></image>
+        <view style="width:20rpx"></view>
+        <view style="font-size:48rpx;font-weight:bold">好题</view>
+    </view>
+    <view animation="{{ani_btn_bottom_show}}" bindtap="btn_showReason_clicked" class="row center2 space-a {{curState>=1?'':'hide'}}" hoverClass="brightness" style="position:absolute;left:40rpx;right:40rpx;bottom:0px;height:120rpx;background-color:#FF7063;opacity:0;border-radius: 60rpx;font-size:48rpx;font-weight:bold;box-shadow:0 2rpx 4rpx rgba(0,0,0,0.5)">
+        这道题不应该通过审核
+    </view>
+</view>
+<view class="column start center2 reasonlist-show" style="position: absolute;left:0px;top:0px;width:100%;height:100%;background-color:rgba(0,0,0,0.5);" wx:if="{{showReasonList}}">
+    <view style="height:30rpx"></view>
+    <view class="column-reverse start center2" style="position:absolute;left:0rpx;top:0px;background-color:#4E84E5;width:100%;height:100%">
+        <image src="http://question-resource-zh.hortor.net/image/new_skin/battle/bg_battle.png?v=0.1.12" style="width:750rpx;height:502rpx;"></image>
+    </view>
+    <view class="center2 center" style="position:absolute;top:32rpx;left:calc((100% - 315rpx)/2);width:315rpx;height:67rpx;border-radius:33rpx;font-size:36rpx;color:#fff;background-color:#FF7063;font-weight:bold">哪里有问题?</view>
+    <view class="column start center2 " style="position: absolute;left:0px;top:130rpx;bottom:0px;width:100%">
+        <scroll-view animation="{{ani_list}}" scrollY="true" style="width: 680rpx;height: 100%;">
+            <block wx:for="{{reasonList}}" wx:for-index="id" wx:key="id">
+                <view bindtap="callback_reasonitem_clicked" class="column center center2" data-id="{{item.id}}" hoverClass="brightness" style="border-radius: 60rpx;width:680rpx;height: 120rpx; background-color:#fff;font-size:48rpx;color:#4353A4;box-shadow:0 2rpx 4rpx rgba(0,0,0,0.5);font-weight:bold">
+                    {{item.title}}
+                </view>
+                <view style="height:22rpx"></view>
+            </block>
+        </scroll-view>
+    </view>
+</view>

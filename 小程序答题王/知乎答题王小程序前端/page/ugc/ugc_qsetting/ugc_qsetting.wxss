@@ -1,0 +1,78 @@
+@import "../ugc_list/ugc_list.wxss";
+
+.item-show {
+    opacity: 0;
+    animation: frames-item-show 0.4s ease-out;
+}
+
+@-webkit-keyframes frames-item-show {
+    0% {
+        transform: scale(0.8) rotate(-15deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes frames-item-show {
+    0% {
+        transform: scale(0.8) rotate(-15deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.item-selected {
+    animation: frames-item-selected 0.4s ease-out infinite alternate;
+}
+
+@-webkit-keyframes frames-item-selected {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+@keyframes frames-item-selected {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+.btn-show {
+    animation: frames-btn-show 0.4s ease-out alternate;
+}
+
+@-webkit-keyframes frames-btn-show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes frames-btn-show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

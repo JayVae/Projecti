@@ -1,0 +1,16 @@
+@import "../ugc_list/ugc_list.wxss";
+
+.menu-item {
+    width: 98%;
+    height: 150rpx;
+    background-color: rgba(35,85,154,0.8);
+    font-size: 38rpx;
+    border-radius: 5px;
+    border: 1rpx solid rgba(255,255,255,0.2);
+    box-shadow: 0px 0px 5px rgba(35,190,255,0.2) inset;
+}
+
+.item-normal {
+    opacity: 0;
+    transform: scale(1.1) rotate(-5deg) translate3d(0,0px,0);
+}

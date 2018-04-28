@@ -1,0 +1,16 @@
+@import "../../template/avatarBase.wxss";
+
+.userAvatar {
+    width: 150rpx;
+    height: 150rpx;
+    position: absolute;
+    top: 4rpx;
+    left: calc((100% - 150rpx) / 2);
+}
+
+.userAvatar-item {
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    left: calc((100% - 80rpx) / 2);
+}

@@ -1,0 +1,120 @@
+@import "../../../template/ugcView.wxss";
+
+.help {
+    height: 70rpx;
+    width: 80rpx;
+    background-color: rgba(85,119,182,0.5);
+    border-top-right-radius: 35rpx;
+    border-bottom-right-radius: 35rpx;
+    border: 1rpx solid rgba(255,255,255,0.2);
+}
+
+.combox-background {
+    height: 67rpx;
+    width: 199rpx;
+    background-color: rgba(11,40,91,0.3);
+    border-radius: 5px;
+    border: 1rpx solid rgba(52,123,212,1);
+}
+
+.combox-right {
+    height: 100%;
+    width: 30%;
+    background-color: #2367ae;
+    border-radius: 0rpx 8rpx 8rpx 0rpx;
+}
+
+.combox-menu {
+    width: 30%;
+    top: 100%;
+    background-color: rgba(35,103,174,1);
+    border-radius: 5rpx 5rpx 10rpx 10rpx;
+    border: 1rpx solid rgba(52,123,212,0.4);
+}
+
+.combox-trangel-down {
+    width: 0;
+    height: 0;
+    border-left: 16rpx solid transparent;
+    border-right: 16rpx solid transparent;
+    border-top: 20rpx solid #a5cbff;
+}
+
+.combox-trangel-up {
+    width: 0;
+    height: 0;
+    border-left: 16rpx solid transparent;
+    border-right: 16rpx solid transparent;
+    border-bottom: 20rpx solid #a5cbff;
+}
+
+.stem-background {
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.answer-board-right {
+    width: 96%;
+    height: 106rpx;
+    background-color: rgba(90,235,189,0.2);
+    font-size: 38rpx;
+    border-radius: 5px;
+    border: 4rpx solid rgba(90,235,189,1);
+}
+
+.answer-board-wrong {
+    width: 96%;
+    height: 106rpx;
+    background-color: rgba(255,205,165,0.2);
+    font-size: 38rpx;
+    border-radius: 5px;
+    border: 4rpx solid rgba(255,205,165,1);
+}
+
+.setting-show {
+    animation: frames-item-show 0.6s ease-out alternate;
+}
+
+.stem-show {
+    animation: frames-item-show 0.6s ease-out alternate;
+}
+
+.answer0-show {
+    animation: frames-item-show 0.6s ease-out alternate;
+}
+
+.answer1-show {
+    animation: frames-item-show 0.6s ease-out alternate;
+}
+
+.answer2-show {
+    animation: frames-item-show 0.6s ease-out alternate;
+}
+
+.answer3-show {
+    animation: frames-item-show 0.6s ease-out alternate;
+}
+
+.btn-show {
+    animation: frames-item-show 0.6s ease-out alternate;
+}
+
+@-webkit-keyframes frames-item-show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes frames-item-show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

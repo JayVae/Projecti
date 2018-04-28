@@ -1,0 +1,61 @@
+<import src="../../../template/ugcView.wxml"></import>
+<import src="../../../template/grid9Panel.wxml"></import>
+<view class="column-reverse start center2" style="background-color:#4E84E5;width:100%;height:100%">
+    <image src="http://question-resource-zh.hortor.net/image/new_skin/battle/bg_battle.png?v=0.1.12" style="width:750rpx;height:502rpx;"></image>
+</view>
+<form bindsubmit="btn_submit_edit_clicked" class="column start center2" reportSubmit="{{true}}" style="position: absolute;left:0px;top:0px;width:100%;height:100%;overflow:hidden">
+    <view class="column start center2" style="position:absolute;left:0px;top:440rpx; width:100%;">
+        <block wx:for="{{selectedItem.answers}}" wx:for-index="id" wx:key="id">
+            <view class="center center2 answer{{id}}-show" style="width:440rpx;height:118rpx;position:relative" wx:if="{{showItem[2+id]}}">
+                <image src="http://question-resource-zh.hortor.net/image/new_skin/battle/{{id==0?'btn_answer_green':'btn_answer_red'}}.png?v=0.1.12" style="width:100%;height:100%;"></image>
+                <view class="row center center2" data-id="{{id}}" style="position:absolute;left:0px;top:0px;width:100%;height:100%">
+                    <input bindblur="callback_1_bindblur" bindinput="callback_answer1_input" data-id="{{id}}" disabled="{{!isNew||trySubmit}}" maxlength="18" placeholder="{{id==0?'正确':'错误'}}答案" placeholderStyle="color:{{trySubmit?id==0?'#7F7F7F':'#7F7F7F':id==0?'#417505':'#AC4830'}}" style="width:100%;height:100%;line-height: 46rpx;text-align:center;color:{{trySubmit?'#7F7F7F':'#fff'}};font-size:40rpx" type="text" value="{{item.title}}"></input>
+                </view>
+                <image src="http://question-resource-zh.hortor.net/image/new_skin/battle/{{id==0?'icon_btn_answer_right':'icon_btn_answer_wrong'}}.png" style="width:33rpx;height:33rpx;position:absolute;left:20rpx;top:calc((100% - 33rpx) / 2);"></image>
+            </view>
+            <view style="height:18rpx"></view>
+        </block>
+    </view>
+    <view class="center center2 stem-background stem-show" style="position:absolute;left:calc((100% - 680rpx) / 2);top:137rpx; width:680rpx;height:200rpx;font-size:36rpx;" wx:if="{{showItem[1]}}">
+        <textarea bindblur="callback_stem_bindblur" bindfocus="callback_stem_focus" bindinput="callback_stem_input" data-type="stem_textarea" disabled="{{!isNew||trySubmit}}" focus="{{stemEditting}}" maxlength="50" name="textarea_stem" placeholder="题干内容" placeholderStyle="color:{{trySubmit?'#4D4D4D':'#9B9B9B'}}" style="width:640rpx;height:160rpx;font-size:36rpx;color:{{trySubmit?'#4D4D4D':'#4E84E5'}};line-height: 50rpx;font-weight:bold;" value="{{selectedItem.stem||''}}" wx:if="{{!showHelpView&&!showSubmitRewardView}}"></textarea>
+    </view>
+    <view class="center center2 font-blue-1 setting-show" style="position:absolute;left:0px;top:0px;width:315rpx;height:81rpx;background-color:#66CAFD;border-bottom-right-radius: 40rpx;border-top-right-radius: 40rpx;" wx:if="{{showItem[0]}}">
+        <view class="row center center2">
+            <view class="center center2" style="color:#fff;font-size:48rpx;padding-right:16rpx">
+                        {{selectedItem.typeText}}
+                  </view>
+            <view style="width:3rpx;height:58rpx;background-color:#fff"></view>
+            <view class="center center2" style="color:#8EBCFE;font-size:36rpx;padding-left:16rpx">
+                        {{selectedItem.subjectText}}
+                  </view>
+        </view>
+    </view>
+    <view bindtap="btn_trySubmit_clicked" class="center center2 btn-show" style="position:absolute;bottom:0px;left:5%;right:5%;height:150rpx;background-color:#4583e1;border-top-left-radius:40rpx;border-top-right-radius:40rpx;box-shadow: 0rpx 0rpx 8rpx rgba(0,0,0,0.5);" wx:if="{{isNew&&showItem[6]&&!trySubmit}}">
+        <view style="font-size:64rpx;font-weight:bold;color:{{arrowSubmit?'#fff':'#4D4D4D'}}">提交</view>
+    </view>
+    <view class="center center2 btn-show frame2" style="position:absolute;left:0px;bottom:26px;width:100%;font-size:36rpx;height:136rpx" wx:if="{{!isNew&&selectedItem.status==0&&showItem[6]}}">
+        <image src="http://question-resource-zh.hortor.net/image/ugc/status/0.png" style="width:559rpx;height:133rpx"></image>
+    </view>
+    <view class="start center2 btn-show frame2" style="position:absolute;left:0px;bottom:26px;width:100%;font-size:36rpx;height:136rpx" wx:if="{{!isNew&&selectedItem.status==2&&showItem[6]}}">
+        <image src="http://question-resource-zh.hortor.net/image/ugc/status/2.png" style="width:559rpx;height:133rpx"></image>
+    </view>
+    <view class="start center2 btn-show frame2" style="position:absolute;left:0px;bottom:26px;width:100%;height:160rpx" wx:if="{{!isNew&&selectedItem.status==1&&showItem[6]}}">
+        <image src="http://question-resource-zh.hortor.net/image/ugc/status/1.png" style="width:509rpx;height:160rpx"></image>
+        <view class="center center2" style="position:absolute;left:0px;bottom:0px;width:100%;height:60rpx;color:#f6605f;font-size:26rpx;color:#c63352">
+                  {{selectedItem.reason}}
+            </view>
+    </view>
+    <view style="position:absolute;left:0px;top:0px;width:100%;height:100%" wx:if="{{trySubmit}}">
+        <view bindtap="callback_subjectsForm_closed" style="width:100%;height:100%;background-color:rgba(0,0,0,0.5);"></view>
+        <view class="show-form column start center2" style="position:absolute; width:100%; height:240rpx; left:0; right:0; bottom:0;">
+            <view class="row center2 space-a" style="width:100%;height:128rpx">
+                <image bindtap="btn_cancelSubmit_clicked" hoverClass="brightness" src="http://question-resource-zh.hortor.net/image/new_skin/question_factory/icon_qf_notpass.png" style="width:128rpx;height:128rpx;"></image>
+                <view class="center center2" style="position:relative;border-radius:64rpx;width:515rpx;height:128rpx;background-color:#7ED321;color:#fff;font-size:64rpx;font-weight:bold">
+                              确认提交
+                              <button formType="submit" style="position:absolute;left:0px;top:0px;width:100%;height:100%;opacity: 0;">看不见的提交</button>
+                </view>
+            </view>
+            <view style="color:#fff;font-size:36rpx;padding-top:8rpx;font-weight:bold">提交后不可修改</view>
+        </view>
+    </view>
+</form>

@@ -1,0 +1,20 @@
+<import src="/template/QRCodeCreater.wxml"></import>
+<template is="QRCodeCreater" data></template>
+<view class="mainView">
+    <image class="downImg" src="http://question-resource-zh.hortor.net/image/new_skin/new_user/img_newuser_page_down.png?v=0"></image>
+    <image class="upImg" src="http://question-resource-zh.hortor.net/image/new_skin/new_user/img_newuser_page_up.png?v=0"></image>
+    <view class="text1">{{text1}}</view>
+    <view class="text2">{{text2}}</view>
+    <view bindtap="onTapGameBtn" class="gameBtn">继续游戏</view>
+    <view class="bottomText">更多有趣的题目等待你的挑战!</view>
+    <image class="shareBtn" src="http://question-resource-zh.hortor.net/image/new_skin/new_user/btn_share_image.png?v=0"></image>
+    <button class="shareBtn" openType="share" style="opacity:0;">隐藏的分享按钮</button>
+    <form bindreset="" bindsubmit="onTapSaveBtn" class="saveBtnForm" reportSubmit="{{true}}">
+        <image class="saveBtn" src="http://question-resource-zh.hortor.net/image/new_skin/new_user/btn_save_image.png"></image>
+        <button class="saveBtn" formType="submit" style="opacity:0;">隐藏的表单按钮</button>
+    </form>
+    <view class="coordinateView">
+        <image class="coordinateImg" src="http://question-resource-zh.hortor.net/image/new_skin/info/img_info_coordinate.png?v=0"></image>
+        <canvas canvasId="myCanvas" class="coordinateCanvas"></canvas>
+    </view>
+</view>
